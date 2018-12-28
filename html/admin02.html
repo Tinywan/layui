@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layout 后台大布局 - Layui</title>
+  <link rel="stylesheet" href="../layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">layui 后台布局</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          贤心
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">所有商品</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="javascript:;">列表三</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">解决方案</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">云市场</a></li>
+        <li class="layui-nav-item"><a href="">发布商品</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+      <div class="layui-tab" lay-allowClose="true">
+        <ul class="layui-tab-title">
+          <li class="layui-this">网站设置</li>
+          <li>用户基本管理</li>
+          <li>权限分配</li>
+          <li>全部历史商品管理文字长一点试试</li>
+          <li>订单管理</li>
+        </ul>
+        <div class="layui-tab-content">
+          <div class="layui-tab-item layui-show">
+            <table class="layui-table">
+              <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>昵称</th>
+                  <th>加入时间</th>
+                  <th>签名</th>
+                </tr> 
+              </thead>
+              <tbody>
+                <tr>
+                  <td>贤心</td>
+                  <td>2016-11-29</td>
+                  <td>人生就像是一场修行</td>
+                </tr>
+                <tr>
+                  <td>许闲心</td>
+                  <td>2016-11-28</td>
+                  <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="layui-tab-item">2</div>
+          <div class="layui-tab-item">3</div>
+          <div class="layui-tab-item">4</div>
+          <div class="layui-tab-item">5</div>
+          <div class="layui-tab-item">6</div>
+        </div>
+      </div>
+      <hr class="layui-bg-red">
+      <table class="layui-table">
+        <colgroup>
+          <col width="150">
+          <col width="200">
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>昵称</th>
+            <th>加入时间</th>
+            <th>签名</th>
+          </tr> 
+        </thead>
+        <tbody>
+          <tr>
+            <td>贤心</td>
+            <td>2016-11-29</td>
+            <td>人生就像是一场修行</td>
+          </tr>
+          <tr>
+            <td>许闲心</td>
+            <td>2016-11-28</td>
+            <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr class="layui-bg-cyan">
+      <table id="demo" lay-filter="test"></table>
+      <hr class="layui-bg-cyan">
+      <form class="layui-form"> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+        <div class="layui-form-item">
+          <label class="layui-form-label">输入框</label>
+          <div class="layui-input-block">
+            <input type="text" name="" placeholder="请输入" autocomplete="off" class="layui-input" lay-verify="required|phone|number">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">下拉选择框</label>
+          <div class="layui-input-block">
+            <select name="interest" lay-filter="aihao">
+              <option value="0">写作</option>
+              <option value="1">阅读</option>
+            </select>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">复选框</label>
+          <div class="layui-input-block">
+            <input type="checkbox" name="like[write]" title="写作">
+            <input type="checkbox" name="like[read]" title="阅读">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">开关关</label>
+          <div class="layui-input-block">
+            <input type="checkbox" lay-skin="switch">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">开关开</label>
+          <div class="layui-input-block">
+            <input type="checkbox" checked lay-skin="switch">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">单选框</label>
+          <div class="layui-input-block">
+            <input type="radio" name="sex" value="0" title="男">
+            <input type="radio" name="sex" value="1" title="女" checked>
+          </div>
+        </div>
+        <div class="layui-form-item layui-form-text">
+          <label class="layui-form-label">请填写描述</label>
+          <div class="layui-input-block">
+            <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+        </div>
+        <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+      </form>
+    </div>
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © layui.com - 底部固定区域
+  </div>
+</div>
+<script src="../layui/layui.js"></script>
+<script>
+  layui.use(['table','element','form'], function(){
+    var element = layui.element;
+    var table = layui.table;
+    var form = layui.form;
+    
+    //第一个实例
+    table.render({
+      elem: '#demo'
+      ,height: 312
+      ,url: '/demo/table/user/' //数据接口
+      ,page: true //开启分页
+      ,cols: [[ //表头
+        {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
+        ,{field: 'username', title: '用户名', width:80}
+        ,{field: 'sex', title: '性别', width:80, sort: true}
+        ,{field: 'city', title: '城市', width:80} 
+        ,{field: 'sign', title: '签名', width: 177}
+        ,{field: 'experience', title: '积分', width: 80, sort: true}
+        ,{field: 'score', title: '评分', width: 80, sort: true}
+        ,{field: 'classify', title: '职业', width: 80}
+        ,{field: 'wealth', title: '财富', width: 135, sort: true}
+      ]]
+    });
+    
+  });
+</script>
+</body>
+</html>
