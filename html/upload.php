@@ -1,4 +1,5 @@
 <?php
+
 /**.-------------------------------------------------------------------------------------------------------------------
  * |  Github: https://github.com/Tinywan
  * |  Blog: http://www.cnblogs.com/Tinywan
@@ -15,14 +16,26 @@
 // "error": 0,
 // "size": 146273
 // }
-
- if (file_exists("upload/" . $_FILES["file"]["name"]))
- {
-     exit(json_encode(['msg'=>'文件已经存在']));
- }
- else
- {
+$res = [
+    'code' => 0,
+    'msg' => 'upload file',
+    'data' => $_FILES["file"],
+];
+exit(json_encode($res));
+if (file_exists("upload/" . $_FILES["file"]["name"])) {
+    $res = [
+        'code' => -1,
+        'msg' => 'upload file',
+        'data' => $_FILES["file"]["name"],
+    ];
+    exit(json_encode($res));
+} else {
      // 如果 upload 目录不存在该文件则将文件上传到 upload 目录下
-     move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
-     exit(json_encode(['file'=>$_FILES["file"]["name"]]));
- }
+    move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
+    $res = [
+        'code' => 0,
+        'msg' => 'upload success',
+        'data' => $_FILES["file"]["name"],
+    ];
+    exit(json_encode($res));
+}

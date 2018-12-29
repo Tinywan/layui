@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>开始使用layui</title>
+  <link rel="stylesheet" href="/assets/plugin/layui/css/layui.css">
+</head>
+
+<body>
+  <h1>文件上传</h1>
+  <button type="button" class="layui-btn" id="test1">
+    <i class="layui-icon">&#xe67c;</i>图片自动转换文字
+  </button>
+  <script src="../res/layui/layui.js"></script>
+  <script>
+    layui.config({
+      version: "3.0.0"
+      , base: '../res/mods/' //这里实际使用时，建议改成绝对路径
+    }).extend({
+      openapi: 'openapi'  //如果 mymod.js 是在根目录，也可以不用设定别名
+    });
+
+    layui.use(['openapi'], function () {
+      var openapi = layui.openapi
+      // _case.hello('World! case'); //弹出 Hello World!
+      // _case.comment('World! case'); //弹出 Hello World!
+      // _case.show('World! case'); //弹出 Hello World!
+      // 图片转换文字
+      openapi.images_to_text('tinywan');
+    });
+  </script>
+</body>
+
+</html>
